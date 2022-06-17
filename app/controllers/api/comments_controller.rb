@@ -43,7 +43,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @service.comments.find(params[:id])
     end
 end
 
