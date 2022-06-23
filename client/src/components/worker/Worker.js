@@ -2,7 +2,7 @@ import { useState } from 'react'
 import WorkerForm from './WorkerForm';
 
 
-const List = ({ id, first_name, last_name, image, updateWorker, deleteWorker }) => {
+const Worker = ({ id, first_name, last_name, image, updateWorker, deleteWorker }) => {
 
   const [editing, setEdit] = useState(false)
 
@@ -46,4 +46,4 @@ const List = ({ id, first_name, last_name, image, updateWorker, deleteWorker }) 
   )
 }
 
-export default List;
+export default Worker;

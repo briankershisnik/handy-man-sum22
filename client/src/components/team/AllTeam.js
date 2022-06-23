@@ -1,26 +1,22 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import Team from './Team';
 
-
-import Worker from './Worker';
-
-const AllWorker = ({ workers, updateWorker, deleteWorker }) => (
+const AllTeam = ({ workers }) => (
   <>
-    <br/>
-    <h1>All Workers</h1>
-    <br/>
-   
-    <Container>
-    <Row>
+  
+
+
+  <Container>
+  <Row>
       { workers.map( w => 
           <Col>
             <Card style={{ width: '12rem' }}>
               <Card.Body>
-                <Worker 
+                <Team 
                   key={w.id}
           
                   {...w} 
-                  updateWorker={updateWorker} 
-                  deleteWorker={deleteWorker} 
+                 
                 />
               </Card.Body>
             </Card>
@@ -29,9 +25,8 @@ const AllWorker = ({ workers, updateWorker, deleteWorker }) => (
     </Row>
     </Container>
 
-    <br/>
 
   </>
 )
 
-export default AllWorker;
+export default AllTeam;

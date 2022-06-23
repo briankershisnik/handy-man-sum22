@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { Form, Button } from 'react-bootstrap';
 
 const WorkerForm = ({ addWorker, id, first_name, last_name, image, updateWorker, setEdit }) => {
 
@@ -32,35 +32,42 @@ const WorkerForm = ({ addWorker, id, first_name, last_name, image, updateWorker,
   return (
     <>
       <h1>{id ? "Edit" : "Create" } Worker </h1>
-      <form onSubmit={handleSubmit}>
-        <label></label>
+      <Form onSubmit={handleSubmit}>
+        {/* <label></label> */}
         
-        <input 
-        name='first_name' 
-        value={worker.first_name} 
-        onChange={ (e) => setWorker({ ...worker, first_name: e.target.value })}  
-        placeholder='first name'
-        required
-        />
-           
-        <input 
-        name='last_name' 
-        value={worker.last_name} 
-        onChange={ (e) => setWorker({ ...worker, last_name: e.target.value })} 
-        required 
-        placeholder='last name'
-        />
+    
 
-        <input 
-        name='image' 
-        value={worker.image} 
-        onChange={ (e) => setWorker({ ...worker, image: e.target.value })} 
-        required 
-        placeholder='image'
-        />
-      
-        <button type='submit'>{id ? "Update" : "Submit" }</button>
-      </form>
+        <Form.Group className="mb-3 w-50 m-2">
+          <Form.Label>First Name:</Form.Label>
+          <Form.Control 
+            name='first'
+            value={worker.first_name}
+            onChange={(e) => setWorker({ ...worker, first_name: e.target.value })}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 w-50 m-2">
+          <Form.Label>Last Name:</Form.Label>
+          <Form.Control 
+            name='last_name'
+            value={worker.last_name}
+            onChange={(e) => setWorker({ ...worker, last_name: e.target.value })}
+            required
+          />
+        </Form.Group>
+ 
+        <Form.Group className="mb-3 w-50 m-2">
+          <Form.Label>Image:</Form.Label>
+          <Form.Control 
+            name='image'
+            value={worker.image}
+            onChange={(e) => setWorker({ ...worker, image: e.target.value })}
+            required
+          />
+        </Form.Group>
+       <Button variant="primary" type="submit">{id ? "Update" : "Submit" }</Button>
+       
+      </Form>
     </>
   )
 }
